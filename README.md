@@ -41,7 +41,8 @@ However, the remaining flip-flops should be made ready to toggle only when all l
 **PROGRAM**
 
 ```
-UP COUNTER
+
+SYNCHRONOUS-UP COUNTER
 module ex11(out,clk,rst);
 input clk,rst;
 output reg [3:0]out;
@@ -53,6 +54,19 @@ begin
      out <= out+1;
 end
 endmodule
+
+SYNCHRONOUS-DOWN COUNTER
+module ex12(out,clk,rst);
+input clk,rst;
+output reg [3:0]out;
+always @ (posedge clk)
+begin
+   if(rst)
+     out<=0;
+   else 
+     out <= out-1;
+end
+endmodule
 ```
 
 
@@ -60,10 +74,19 @@ endmodule
 
 <img width="1920" height="1200" alt="Screenshot 2025-12-10 112423" src="https://github.com/user-attachments/assets/c636d8f7-9c05-404e-a55b-08ab4d372c3b" />
 
+**RTL LOGIC DOWN COUNTER**
 
-**TIMING DIAGRAM FOR IP COUNTER**
+<img width="1920" height="1200" alt="Screenshot 2025-12-10 114342" src="https://github.com/user-attachments/assets/8cc6b52a-2ed2-4062-b77b-d0703923213d" />
+
+
+**TIMING DIAGRAM FOR UP COUNTER**
 
 <img width="1379" height="659" alt="Screenshot 2025-12-10 112237" src="https://github.com/user-attachments/assets/45e5c892-934c-484a-a003-d866cc50945e" />
+
+**TIMING DIAGRAM FOR DOWN COUNTER**
+
+<img width="1177" height="526" alt="Screenshot 2025-12-10 114210" src="https://github.com/user-attachments/assets/1c22535a-b7a4-4738-9f24-4091b6f41d36" />
+
 
 
 **TRUTH TABLE**
@@ -73,4 +96,4 @@ endmodule
 
 **RESULTS**
 
-Thus to implement 4 bit synchronous up counter and validate functionality done successfully.
+Thus to implement 4 bit synchronous up counter and down counter and validate functionality done successfully.
